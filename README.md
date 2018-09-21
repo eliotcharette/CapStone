@@ -26,7 +26,13 @@ September 2018
 
 | Component Flow Chart|
 |-----------|
-|![alt text](./src/assets/ComponentFlowChart.png)|
+|![alt text](./src/assets/ColombiaTripPlanner.png)|
+
+
+## Future Considerations
+
+
+
 ### Technologies Used
 
 * JavaScript
