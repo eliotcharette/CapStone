@@ -14,13 +14,6 @@ September 2018
 4. npm run start
 
 
-## Specifications
-
-1. Allow user request new beers.
-2. Allow user vote up or down requested beers.
-3. Display feature beer list.
-
-
 ## Component Chart
 
 
