@@ -13,14 +13,13 @@ const Home = () => {
           }
           .top-left {
             position: absolute;
-            top: 200px;
-            left: 200px;
-          }
-          h1 {
+            top: 100px;
+            left: 100px;
             color: grey;
             background-color: #F2DFDB;
             opacity: .9;
           }
+
           `}
       </style>
       <div>
