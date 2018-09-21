@@ -49,6 +49,6 @@ If you encounter any bugs or would like to make suggestions regarding this proje
 
 This project is distributed under the MIT License
 
-##Acknowledgements
+###Acknowledgements
 
 * Thanks to the beautiful people and country of Colombia for your inspiration and all my friends at Epicodus for the support.

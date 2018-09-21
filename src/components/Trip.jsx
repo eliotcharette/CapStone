@@ -19,7 +19,7 @@ const Trip = (props) => {
       </div>
     </div>
   );
-}
+};
 
 Trip.propTypes = {
   name: PropTypes.string.isRequired,
