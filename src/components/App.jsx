@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import Home from './Home';
 import TripPlanner from './TripPlanner';
-import MasterTripList from './MasterTripList';
+import MasterTripList from '../containers/MasterTripList';
 import UserTripList from './UserTripList';
 
-class App extends React.Component {
+export default class App extends Component {
 
   render(){
     return (
@@ -22,4 +22,3 @@ class App extends React.Component {
     );
   }
 }
-export default App;
