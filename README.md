@@ -21,7 +21,7 @@ September 2018
 3. Display feature beer list.
 
 
-## Future Additions
+## Component Chart
 
 
 | Component Flow Chart|
