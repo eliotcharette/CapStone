@@ -20,6 +20,7 @@ class MasterTripList extends Component {
             <li className="list-group-item"><h3>{experience.days} days ${experience.price}</h3></li>
           </div>
           <li><TripMap /></li>
+          <td></td>
         </div>
       );
     });
@@ -40,7 +41,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectTrip: selectTrip }, dispatch)
+  return bindActionCreators({ selectTrip: selectTrip }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MasterTripList);

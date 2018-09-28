@@ -5,7 +5,9 @@ export default function() {
       description: 'The Northwest’s original, unfiltered and dry hopped amber ale. African Amber’s pioneering and innovative style is proof that drinkabilty does not have to be achieved by sacrificing flavor. This beer erupts with a floral, hoppy taste, followed by a well rounded malty middle, finishing with a nicely organic hop flavor. Locally sourced two row grain and a blend of specialty malts give our amber its rich taste. Further complexity is achieved by leaving the beer unfiltered, providing exceptional flavor, as well as giving our amber its unique "cloudy" look. Lastly, we dry hop with locally grown, Yakima valley hops creating what has become the original, cult classic, northwest amber ale.',
       price: '7',
       days: '20',
-      city: 'bogota'
+      city: 'bogota',
+      lon: '4.711',
+      lat: '-74.0721'
     },
     {
       name: 'Coffee Tour',
