@@ -26,6 +26,7 @@ Trip.propTypes = {
   description: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   days: PropTypes.string.isRequired,
+  city: PropTypes.string;,
   img: PropTypes.element,
 };
 export default Trip;
