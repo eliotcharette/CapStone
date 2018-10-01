@@ -24,6 +24,7 @@
     "react-router-dom": "^4.0.0",
     "reactstrap": "^6.4.0",
     "redux": "^3.7.2",
+    "redux-form": "^6.6.3",
     "styled-jsx": "^3.0.2",
     "uuid": "^3.2.1"
   },
