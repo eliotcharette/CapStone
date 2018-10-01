@@ -3,21 +3,33 @@ import {Field, reduxForm } from 'redux-form';
 
 class TripsNew extends Component {
   renderField(field) {
+
+    const { meta: { touched, error } } = field;
+    const className = `form-control ${touched && error ? 'is-invalid' : ''}`
     return (
       <div className="form-group">
         <label>{field.label}</label>
         <input
-          className="form-control"
+          className={className}
           type="text"
           {...field.input}
         />
-      {field.meta.error}
+      <div className="invalid-feedback">
+      {touched ? error : ''}
+      </div>
       </div>
     );
   }
+
+  onSubmit(values) {
+
+  }
+
   render() {
+    const { handleSubmit } = this.props;
+
     return (
-      <form>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Field
           label="Title for Experience"
           name="title"
