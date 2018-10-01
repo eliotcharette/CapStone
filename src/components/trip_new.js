@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
 
 class TripsNew extends Component {
   renderField(field) {
@@ -51,6 +52,7 @@ class TripsNew extends Component {
           name="location"
           component={this.renderField} />
         <button type="submit" className="btn btn-info">Save</button>
+        <Link to="/" className="btn btn-danger cancel">Cancel</Link>
       </form>
     );
   }
