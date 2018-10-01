@@ -6,6 +6,8 @@ import TripPlanner from './TripPlanner';
 import MasterTripList from '../containers/MasterTripList';
 import UserTripList from './UserTripList';
 import TripsNew from './trip_new';
+import constants from './../constants';
+const { c } = constants;
 
 
 export default class App extends Component {

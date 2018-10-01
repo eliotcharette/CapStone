@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
+import constants from './../constants';
+const { c } = constants;
+import { addTrip } from './../actions'
 
 class TripsNew extends Component {
   renderField(field) {
@@ -23,7 +26,7 @@ class TripsNew extends Component {
   }
 
   onSubmit(values) {
-
+    console.log(values);
   }
 
   render() {
