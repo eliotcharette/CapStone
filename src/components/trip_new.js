@@ -1,29 +1,46 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import {Field, reduxForm } from 'redux-form';
 
 class TripsNew extends Component {
+  renderField(field) {
+    return (
+      <div className="form-group">
+        <label>{field.label}</label>
+        <input
+          className="form-control"
+          type="text"
+          {...field.input}
+        />
+      </div>
+    );
+  }
   render() {
     return (
       <form>
         <Field
+          label="Title for Experience"
           name="title"
-          component={} />
+          component={this.renderField} />
         <Field
-          description="summary"
-          component={} />
+          label="Description for Experience"
+          name="summary"
+          component={this.renderField} />
         <Field
-          price="price"
-          component={} />
+          label="Price"
+          name="price"
+          component={this.renderField} />
         <Field
-          length="days"
-          component={} />
+          label="Length in Days"
+          name="days"
+          component={this.renderField} />
         <Field
-          location="city"
-          component={} />
+          label="City or Town Name"
+          name="location"
+          component={this.renderField} />
       </form>
     );
   }
-
+}
 
 export default reduxForm({
   form: 'TripsNewForm'

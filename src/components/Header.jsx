@@ -17,6 +17,7 @@ const Header = () => {
         <button><Link to="/trip">Trip Planner</Link></button>
         <button><Link to="/triplist">Your Trip List</Link></button>
         <button><Link to="/experiences">Experiences</Link></button>
+        <button><Link to="/trips/new">Add an Experience</Link></button>
       </div>
     </div>
   );
