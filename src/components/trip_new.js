@@ -11,6 +11,7 @@ class TripsNew extends Component {
           type="text"
           {...field.input}
         />
+      {field.meta.error}
       </div>
     );
   }
@@ -23,7 +24,7 @@ class TripsNew extends Component {
           component={this.renderField} />
         <Field
           label="Description for Experience"
-          name="summary"
+          name="description"
           component={this.renderField} />
         <Field
           label="Price"
@@ -37,11 +38,35 @@ class TripsNew extends Component {
           label="City or Town Name"
           name="location"
           component={this.renderField} />
+        <button type="submit" className="btn btn-info">Save</button>
       </form>
     );
   }
 }
 
+function validate(values) {
+  const errors = {};
+
+  if (!values.title) {
+    errors.title = "Please Enter a Title";
+  }
+  if (!values.description) {
+    errors.description = "Please add a Description";
+  }
+  if (!values.price) {
+    errors.price = "Please List a Price";
+  }
+  if (!values.days) {
+    errors.days = "Please Enter Amount of Days";
+  }
+  if (!values.location) {
+    errors.location = "Please Enter a Location";
+  }
+
+  return errors;
+}
+
 export default reduxForm({
+  validate,
   form: 'TripsNewForm'
 })(TripsNew);
