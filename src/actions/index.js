@@ -5,7 +5,7 @@ import Firebase from 'firebase';
 firebase.initializeApp(firebaseConfig);
 const trips = firebase.database().ref('trips');
 
-export function addTrip(values) {
+export function createTrip(values) {
   return () => trips.push({
     values
   });

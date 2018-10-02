@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
-import constants from './../constants';
+import constants from '../constants';
 const { c } = constants;
-import { addTrip } from './../actions'
+import { createTrip } from '../actions';
+import { connect } from 'react-redux';
 
 class TripsNew extends Component {
   renderField(field) {
@@ -26,7 +27,7 @@ class TripsNew extends Component {
   }
 
   onSubmit(values) {
-    console.log(values);
+    this.props.createTrip(values);
   }
 
   render() {
@@ -86,4 +87,6 @@ function validate(values) {
 export default reduxForm({
   validate,
   form: 'TripsNewForm'
-})(TripsNew);
+})(
+  connect(null, { createTrip })(TripsNew)
+);
