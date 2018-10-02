@@ -10,7 +10,7 @@ class TripsNew extends Component {
   renderField(field) {
 
     const { meta: { touched, error } } = field;
-    const className = `form-control ${touched && error ? 'is-invalid' : ''}`
+    const className = `form-control ${touched && error ? 'is-invalid' : ''}`;
     return (
       <div className="form-group">
         <label>{field.label}</label>
@@ -19,15 +19,17 @@ class TripsNew extends Component {
           type="text"
           {...field.input}
         />
-      <div className="invalid-feedback">
-      {touched ? error : ''}
-      </div>
+        <div className="invalid-feedback">
+          {touched ? error : ''}
+        </div>
       </div>
     );
   }
 
   onSubmit(values) {
+    this.props.history.push('/trips');
     this.props.createTrip(values);
+
   }
 
   render() {
@@ -66,19 +68,19 @@ function validate(values) {
   const errors = {};
 
   if (!values.title) {
-    errors.title = "Please Enter a Title";
+    errors.title = 'Please Enter a Title';
   }
   if (!values.description) {
-    errors.description = "Please add a Description";
+    errors.description = 'Please add a Description';
   }
   if (!values.price) {
-    errors.price = "Please List a Price";
+    errors.price = 'Please List a Price';
   }
   if (!values.days) {
-    errors.days = "Please Enter Amount of Days";
+    errors.days = 'Please Enter Amount of Days';
   }
   if (!values.location) {
-    errors.location = "Please Enter a Location";
+    errors.location = 'Please Enter a Location';
   }
 
   return errors;
