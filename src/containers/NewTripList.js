@@ -10,7 +10,7 @@ class MasterTrips extends Component {
   }
 
   renderTrips() {
-    return _.map(this.props.trips, trip => {
+    return  _.map(this.props.trips, trip => {
       return (
         <li className="list-group-item" key={data.getKey()}>
           {trip.title}
@@ -37,7 +37,7 @@ class MasterTrips extends Component {
 }
 
 function mapStateToProps(state) {
-  return { trips: state.savedTrips };
+  return { trips: state.trips };
 }
 
 export default connect(mapStateToProps, { receiveTrip })(MasterTrips);

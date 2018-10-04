@@ -23,10 +23,14 @@ export function selectTrip(experience) {
 export function firebaseNewTripListener() {
   return function(dispatch) {
     trips.on('child_added', data => {
-      console.log(data.val());
+      const newTrip = Object.assign({}, data.val(), {
+        id: data.getKey()
+      });
+      console.log(newTrip);
     });
   };
 }
+// dispatch(receiveTrip(newTrip));
 
 // export function firebaseNewTripListener() {
 //   return function(dispatch) {
