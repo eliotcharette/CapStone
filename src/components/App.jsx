@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Header from './Header';
 import Home from './Home';
 import TripPlanner from './TripPlanner';
@@ -7,22 +8,30 @@ import MasterTripList from '../containers/MasterTripList';
 import TripsNew from './trip_new';
 import MasterTrips from '../containers/NewTripList';
 import constants from '../constants';
+import * as actions from './../actions';
 
 
-export default class App extends Component {
+class App extends Component {
+
+  componentWillMount() {
+   const { dispatch } = this.props;
+  const { firebaseNewTripListener } = actions;
+  dispatch(firebaseNewTripListener());
+}
 
   render(){
     return (
       <div className="container">
         <Header/>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/trip' component={TripPlanner} />
-          <Route path='/experiences' component={MasterTripList} />
-          <Route path='/trips/new' component={TripsNew} />
-          <Route path='/trips' component={MasterTrips} />
+          <Route exact path='/' render={() => <Home />} />
+          <Route path='/trip' render={() => <TripPlanner />} />
+          <Route path='/experiences' render={() => <MasterTripList />} />
+          <Route path='/trips/new' render={() => <TripsNew />} />
+          <Route path='/trips' render={() => <MasterTrips />} />
         </Switch>
       </div>
     );
   }
 }
+export default withRouter (connect()(App));

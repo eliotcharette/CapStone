@@ -26,10 +26,9 @@ class TripsNew extends Component {
     );
   }
 
+  // this.props.history.push('/trips');
   onSubmit(values) {
-    this.props.history.push('/trips');
     this.props.createTrip(values);
-
   }
 
   render() {

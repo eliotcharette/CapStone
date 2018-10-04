@@ -13,27 +13,35 @@ export function createTrip(values) {
   });
 }
 
+export function selectTrip(experience) {
+  return {
+    type: 'TRIP_SELECTED',
+    payload: experience
+  };
+}
+
 export function firebaseNewTripListener() {
   return function(dispatch) {
-    values.on('child_added', data => {
-      const newTrip = Object.assign({}, data.val(), {
-        id: data.getKey()
-      });
-      dispatch(receiveTrip(newTrip));
+    trips.on('child_added', data => {
+      console.log(data.val());
     });
   };
 }
+
+// export function firebaseNewTripListener() {
+//   return function(dispatch) {
+//     values.on('child_added', data => {
+//       const newTrip = Object.assign({}, data.val(), {
+//         id: data.getKey()
+//       });
+//       dispatch(receiveTrip(newTrip));
+//     });
+//   };
+// }
 
 export function receiveTrip(tripFromFirebase) {
   return {
     type: RECEIVE_TRIP,
     trip: tripFromFirebase
-  };
-}
-
-export function selectTrip(experience) {
-  return {
-    type: 'TRIP_SELECTED',
-    payload: experience
   };
 }
