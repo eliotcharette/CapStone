@@ -3,41 +3,25 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { receiveTrip } from '../actions';
+import PropTypes from 'prop-types';
 
-class MasterTrips extends Component {
-  componentDidMount() {
-    this.props.receiveTrip();
-  }
+function MasterTrips(props) {
 
-  renderTrips() {
-    return  _.map(this.props.trips, trip => {
-      return (
-        <li className="list-group-item" key={data.getKey()}>
+  return (
+    <div>
+      <hr/>
+      {Object.keys(props.tripList).map(function() {
+        var trip = props.tripList;
+        return <li className="list-group-item" key={trip.id}>
           {trip.title}
         </li>
-      );
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <div className="text-xs-right">
-          <Link className="btn btn-primary" to="/trips/new">
-            Add a trip
-          </Link>
-        </div>
-        <h3>Trips</h3>
-        <ul className="list-group">
-          {this.renderTrips()}
-        </ul>
-      </div>
-    );
-  }
+      })}
+    </div>
+  );
+}
+MasterTrips.propTypes = {
+  tripList: PropTypes.object,
+  currentRouterPath: PropTypes.string
 }
 
-function mapStateToProps(state) {
-  return { trips: state.trips };
-}
-
-export default connect(mapStateToProps, { receiveTrip })(MasterTrips);
+export default MasterTrips;

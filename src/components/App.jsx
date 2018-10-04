@@ -9,6 +9,7 @@ import TripsNew from './trip_new';
 import MasterTrips from '../containers/NewTripList';
 import constants from '../constants';
 import * as actions from './../actions';
+import PropTypes from 'prop-types';
 
 
 class App extends Component {
@@ -28,10 +29,20 @@ class App extends Component {
           <Route path='/trip' render={() => <TripPlanner />} />
           <Route path='/experiences' render={() => <MasterTripList />} />
           <Route path='/trips/new' render={() => <TripsNew />} />
-          <Route path='/trips' render={() => <MasterTrips />} />
+          <Route path='/trips' render={() => <MasterTrips  tripList={this.props.savedTrips} />} />
         </Switch>
       </div>
     );
   }
 }
-export default withRouter (connect()(App));
+App.propTypes = {
+  savedTrips: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    savedTrips: state.savedTrips
+  };
+};
+
+export default withRouter (connect(mapStateToProps)(App));

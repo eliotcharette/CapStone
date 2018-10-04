@@ -26,11 +26,11 @@ export function firebaseNewTripListener() {
       const newTrip = Object.assign({}, data.val(), {
         id: data.getKey()
       });
-      console.log(newTrip);
+        dispatch(receiveTrip(newTrip));
     });
   };
 }
-// dispatch(receiveTrip(newTrip));
+
 
 // export function firebaseNewTripListener() {
 //   return function(dispatch) {
