@@ -14,11 +14,11 @@ import PropTypes from 'prop-types';
 
 class App extends Component {
 
-  componentWillMount() {
-   const { dispatch } = this.props;
-  const { firebaseNewTripListener } = actions;
-  dispatch(firebaseNewTripListener());
-}
+//   componentWillMount() {
+//    const { dispatch } = this.props;
+//   const { firebaseNewTripListener } = actions;
+//   dispatch(firebaseNewTripListener());
+// }
 
   render(){
     return (
@@ -29,20 +29,20 @@ class App extends Component {
           <Route path='/trip' render={() => <TripPlanner />} />
           <Route path='/experiences' render={() => <MasterTripList />} />
           <Route path='/trips/new' render={() => <TripsNew />} />
-          <Route path='/trips' render={() => <MasterTrips  tripList={this.props.savedTrips} />} />
+          <Route path='/trips' render={() => <MasterTrips  />} />
         </Switch>
       </div>
     );
   }
 }
-App.propTypes = {
-  savedTrips: PropTypes.object
-};
+// App.propTypes = {
+//   savedTrips: PropTypes.object
+// };
+//
+// const mapStateToProps = state => {
+//   return {
+//     savedTrips
+//   };
+// };
 
-const mapStateToProps = state => {
-  return {
-    savedTrips: state.savedTrips
-  };
-};
-
-export default withRouter (connect(mapStateToProps)(App));
+export default withRouter (App);

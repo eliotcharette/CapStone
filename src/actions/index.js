@@ -3,6 +3,7 @@ const { firebaseConfig } = constants;
 import Firebase from 'firebase';
 
 export const RECEIVE_TRIP = 'receive_trip';
+export const FETCH_TRIPS = 'fetch_trips';
 
 firebase.initializeApp(firebaseConfig);
 const trips = firebase.database().ref('trips');
@@ -26,7 +27,7 @@ export function firebaseNewTripListener() {
       const newTrip = Object.assign({}, data.val(), {
         id: data.getKey()
       });
-        dispatch(receiveTrip(newTrip));
+      dispatch(receiveTrip(newTrip));
     });
   };
 }
@@ -42,6 +43,17 @@ export function firebaseNewTripListener() {
 //     });
 //   };
 // }
+
+export function fetchTrips() {
+  return dispatch => {
+    trips.on('value', snapshot => {
+      dispatch({
+        type: FETCH_TRIPS,
+        payload: snapshot.val()
+      });
+    });
+  };
+}
 
 export function receiveTrip(tripFromFirebase) {
   return {

@@ -58,6 +58,7 @@ class TripsNew extends Component {
           component={this.renderField} />
         <button type="submit" className="btn btn-info">Save</button>
         <Link to="/" className="btn btn-danger cancel">Cancel</Link>
+        <Link to="/trips" className="btn btn-success">Trips</Link>
       </form>
     );
   }

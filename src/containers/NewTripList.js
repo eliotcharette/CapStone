@@ -2,26 +2,47 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { receiveTrip } from '../actions';
+import { fetchTrips } from '../actions';
 import PropTypes from 'prop-types';
 
-function MasterTrips(props) {
+class MasterTrips extends Component {
+  componentWillMount() {
+    this.props.fetchTrips();
+  }
 
-  return (
-    <div>
-      <hr/>
-      {Object.keys(props.tripList).map(function() {
-        var trip = props.tripList;
-        return <li className="list-group-item" key={trip.id}>
+  renderTrips() {
+    return _.map(this.props.trips, trip => {
+      if(!trip){
+    return <div>Loading. . .</div>
+  }
+      return (
+        <li className="list-group-item" key={trip.id}>
           {trip.title}
         </li>
-      })}
-    </div>
-  );
-}
-MasterTrips.propTypes = {
-  tripList: PropTypes.object,
-  currentRouterPath: PropTypes.string
+      );
+    });
+  }
+
+  render() {
+
+    return (
+      <div>
+        <div className="text-xs-right">
+          <Link className="btn btn-primary" to="/trips/new">
+            Add a Trip
+          </Link>
+        </div>
+        <h3>Trips</h3>
+        <ul className="list-group">
+          {this.renderTrips()}
+        </ul>
+      </div>
+    );
+  }
 }
 
-export default MasterTrips;
+function mapStateToProps(state) {
+  return { trips: state.trips };
+}
+
+export default connect(mapStateToProps, { fetchTrips })(MasterTrips);
